@@ -29,6 +29,7 @@ public class ServletFirst extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -42,7 +43,7 @@ public class ServletFirst extends HttpServlet {
 		request.setAttribute("halls", halls);
 		
 		
-		request.getRequestDispatcher("/classe/afficherclasse.jsp").forward(request, response);
+		request.getRequestDispatcher("/Hall/afficherHall.jsp").forward(request, response);
 	}
 
 	/**

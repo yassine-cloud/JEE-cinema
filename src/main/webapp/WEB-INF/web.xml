@@ -42,4 +42,14 @@
     <servlet-name>ServletFirst</servlet-name>
     <url-pattern>/ServletFirst</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletHall</display-name>
+    <servlet-name>ServletHall</servlet-name>
+    <servlet-class>Controller.ServletHall</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletHall</servlet-name>
+    <url-pattern>/ServletHall</url-pattern>
+  </servlet-mapping>
 </web-app>
