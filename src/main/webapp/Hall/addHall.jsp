@@ -16,7 +16,7 @@
 
 	<div class="container m-5">
 
-		<form action="<%=request.getContextPath()%>/hall/add" method="post">
+		<form action="<%=request.getContextPath()%>/admin/hall/add" method="post">
 			<div>
 				<div>Num Hall
 					<input type="text" id="numhall" name="numhall"

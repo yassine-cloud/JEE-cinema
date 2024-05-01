@@ -17,7 +17,7 @@
 
 <h1>Les Halls Disponibles</h1>
 
-<a class="btn btn-primary m-auto my-2" href="<%= request.getContextPath() %>/hall/add" >Ajouter Hall</a>
+<a class="btn btn-success m-auto my-2" href="<%= request.getContextPath() %>/admin/hall/add" >Ajouter Hall</a>
 
 <% Object o = request.getAttribute("halls");
 	ArrayList<Hall> l = new ArrayList<>(); 
@@ -41,8 +41,8 @@
                     <td><%= h.getId_hall() %></td>
                     <td><%= h.getNum_hall() %></td>
                     <td><%= h.getCapacity() %></td>
-                    <td class="text-center" > <a class="btn btn-primary" href="<%= request.getContextPath() %>/hall/edit?id=<%= h.getId_hall() %>" >Editer</a> </td>
-                    <td class="text-center" > <a class="btn btn-danger" href="<%= request.getContextPath() %>/hall/del?id=<%= h.getId_hall() %>">Supprimer</a> </td>
+                    <td class="text-center" > <a class="btn btn-primary" href="<%= request.getContextPath() %>/admin/hall/edit?id=<%= h.getId_hall() %>" >Editer</a> </td>
+                    <td class="text-center" > <a class="btn btn-danger" href="<%= request.getContextPath() %>/admin/hall/del?id=<%= h.getId_hall() %>">Supprimer</a> </td>
                     
                 </tr>
             <% } %>

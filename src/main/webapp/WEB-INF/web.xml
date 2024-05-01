@@ -8,40 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ServletAddUser</display-name>
-    <servlet-name>ServletAddUser</servlet-name>
-    <servlet-class>Controller.ServletAddUser</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletAddUser</servlet-name>
-    <url-pattern>/addclass</url-pattern>
-    <url-pattern>/delclass</url-pattern>
-    <url-pattern>/modclass</url-pattern>
-    <url-pattern>/affclass</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Servletuser</display-name>
-    <servlet-name>Servletuser</servlet-name>
-    <servlet-class>Controller.Servletuser</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Servletuser</servlet-name>
-    <url-pattern>/Servletuser</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletFirst</display-name>
-    <servlet-name>ServletFirst</servlet-name>
-    <servlet-class>Controller.ServletFirst</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletFirst</servlet-name>
-    <url-pattern>/ServletFirst</url-pattern>
-  </servlet-mapping>
+  </welcome-file-list>  
   <servlet>
     <description></description>
     <display-name>ServletHall</display-name>
@@ -51,5 +18,15 @@
   <servlet-mapping>
     <servlet-name>ServletHall</servlet-name>
     <url-pattern>/ServletHall</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletAuth</display-name>
+    <servlet-name>ServletAuth</servlet-name>
+    <servlet-class>Controller.ServletAuth</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAuth</servlet-name>
+    <url-pattern>/ServletAuth</url-pattern>
   </servlet-mapping>
 </web-app>

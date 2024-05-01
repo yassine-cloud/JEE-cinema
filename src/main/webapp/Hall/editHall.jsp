@@ -12,7 +12,7 @@
 <body>
 <div class="container m-5">
 
-		<form action="<%=request.getContextPath()%>/hall/edit" method="post">
+		<form action="<%=request.getContextPath()%>/admin/hall/edit" method="post">
 			<div>
 				<div>ID
 					<input type="text" id="idhall" name="idhall"

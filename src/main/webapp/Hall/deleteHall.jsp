@@ -17,7 +17,7 @@
 	<div class="container m-5">
 
 
-		<form action="<%=request.getContextPath()%>/hall/del"
+		<form action="<%=request.getContextPath()%>/admin/hall/del"
 			method="post">
 			<div>
 				<div>
