@@ -8,7 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>  
+  </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>ServletHall</display-name>
@@ -28,5 +28,25 @@
   <servlet-mapping>
     <servlet-name>ServletAuth</servlet-name>
     <url-pattern>/ServletAuth</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletFilm</display-name>
+    <servlet-name>ServletFilm</servlet-name>
+    <servlet-class>Controller.ServletFilm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletFilm</servlet-name>
+    <url-pattern>/ServletFilm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletClient</display-name>
+    <servlet-name>ServletClient</servlet-name>
+    <servlet-class>Controller.ServletClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletClient</servlet-name>
+    <url-pattern>/ServletClient</url-pattern>
   </servlet-mapping>
 </web-app>

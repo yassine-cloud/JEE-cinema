@@ -45,8 +45,9 @@ public class ServletAuth extends HttpServlet {
         			response.sendRedirect(request.getContextPath()+"/admin/hall");			
             	}
             	else {
-            		request.setAttribute("username",email);
-                    request.getRequestDispatcher("Bienvenue.jsp").forward(request, response);
+            		response.sendRedirect(request.getContextPath()+"/client/film");	
+//            		request.setAttribute("username",email);
+//                    request.getRequestDispatcher("Bienvenue.jsp").forward(request, response);
             	}            
            }
             else

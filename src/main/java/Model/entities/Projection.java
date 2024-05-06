@@ -5,23 +5,23 @@ import java.time.LocalDateTime;
 public class Projection {
 
     private int id_projection;
-    private LocalDateTime debut;
+    private LocalDateTime date;
     private int id_film;
     private int id_hall;
     private float prix;
 
-    public Projection(LocalDateTime debut, int id_film, int id_hall , float prix) {
+    public Projection(LocalDateTime date, int id_film, int id_hall , float prix) {
         super();
-        this.debut = debut;
+        this.date = date;
         this.id_film = id_film;
         this.id_hall = id_hall;
         this.prix = prix;
     }
 
-    public Projection(int id_projection, LocalDateTime debut, int id_film, int id_hall  , float prix) {
+    public Projection(int id_projection, LocalDateTime date, int id_film, int id_hall  , float prix) {
         super();
         this.id_projection = id_projection;
-        this.debut = debut;
+        this.date = date;
         this.id_film = id_film;
         this.id_hall = id_hall;
         this.prix = prix;
@@ -35,12 +35,12 @@ public class Projection {
         this.id_projection = id_projection;
     }
 
-    public LocalDateTime getDebut() {
-        return debut;
+    public LocalDateTime getdate() {
+        return date;
     }
 
-    public void setDebut(LocalDateTime debut) {
-        this.debut = debut;
+    public void setdate(LocalDateTime date) {
+        this.date = date;
     }
 
     public int getId_film() {
@@ -69,7 +69,7 @@ public class Projection {
 
     @Override
     public String toString() {
-        return "Projection [id_projection=" + id_projection + ", debut=" + debut + ", id_film=" + id_film + ", id_hall="
+        return "Projection [id_projection=" + id_projection + ", date=" + date + ", id_film=" + id_film + ", id_hall="
                 + id_hall + ", prix=" + prix + "]";
     }
 

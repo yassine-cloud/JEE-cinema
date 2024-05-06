@@ -14,8 +14,8 @@ public class DaoProjection {
     // sql statements
     private static final String Select_Projections = "SELECT * FROM projection";
     private static final String Select_Projection = "SELECT * FROM projection WHERE id_projection = ?";
-    private static final String Insert_Projection = "INSERT INTO projection (debut, id_film, id_hall, prix) VALUES (?, ?, ?, ?)";
-    private static final String Update_Projection = "UPDATE projection SET debut = ?, id_film = ?, id_hall = ?, prix = ? WHERE id_projection = ?";
+    private static final String Insert_Projection = "INSERT INTO projection (date, id_film, id_hall, prix) VALUES (?, ?, ?, ?)";
+    private static final String Update_Projection = "UPDATE projection SET date = ?, id_film = ?, id_hall = ?, prix = ? WHERE id_projection = ?";
     private static final String Delete_Projection = "DELETE FROM projection WHERE id_projection = ?";
 
     private Connection con = SinglethonConnection.getCon();
@@ -79,7 +79,7 @@ public class DaoProjection {
                 return false;
             }
             PreparedStatement ps = con.prepareStatement(Insert_Projection);
-            ps.setTimestamp(1, java.sql.Timestamp.valueOf(p.getDebut()));
+            ps.setTimestamp(1, java.sql.Timestamp.valueOf(p.getdate()));
             ps.setInt(2, p.getId_film());
             ps.setInt(3, p.getId_hall());
             ps.setFloat(4, p.getPrix());
@@ -103,7 +103,7 @@ public class DaoProjection {
                 return false;
             }
             PreparedStatement ps = con.prepareStatement(Update_Projection);
-            ps.setTimestamp(1, java.sql.Timestamp.valueOf(p.getDebut()));
+            ps.setTimestamp(1, java.sql.Timestamp.valueOf(p.getdate()));
             ps.setInt(2, p.getId_film());
             ps.setInt(3, p.getId_hall());
             ps.setFloat(4, p.getPrix());
