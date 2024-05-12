@@ -14,14 +14,28 @@
     src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cinema</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.getContextPath() %>">Logout</a>
+                    </li>   
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <div class="container m-5">
     <h1>Choisir un Film</h1>
 
-    <%-- Récupération des films depuis la base de données --%>
-    <%-- Supposons que vous avez une liste de films avec leurs noms et identifiants --%>
-    <%-- filmList est une liste d'objets Film avec des attributs id_film et title --%>
-    <%-- Vous devriez remplacer filmList par votre propre logique pour récupérer les films --%>
+
+
     <% Object o = request.getAttribute("films");
         	ArrayList<Film> l = new ArrayList<>(); 
         	if(o instanceof ArrayList){

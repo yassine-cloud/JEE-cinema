@@ -59,6 +59,7 @@ public class ServletFilm extends HttpServlet {
 				ModelFilm daoFilm = new ModelFilm();
 				
 				daoFilm.insertFilm(new Film(titre, description, duration, genre, directeur));
+				System.out.println(new Film(titre, description, duration, genre, directeur));
 
 				response.sendRedirect(request.getContextPath()+"/admin/film");			
 
@@ -76,16 +77,43 @@ public class ServletFilm extends HttpServlet {
 				request.setAttribute("film", film);
 				request.getRequestDispatcher("/Film/editFilm.jsp").forward(request, response);
 			}
+			else if(request.getParameter("idfilm") != null  && request.getParameter("titre") != null && request.getParameter("description") != null && request.getParameter("duration") != null && request.getParameter("genre") != null && request.getParameter("directeur") != null ){
+				int id = Integer.parseInt(request.getParameter("idfilm"));
+				String titre = request.getParameter("titre");
+				String description = request.getParameter("description");
+				int duration = Integer.parseInt(request.getParameter("duration"));
+				String genre = request.getParameter("genre");
+				String directeur = request.getParameter("directeur");
+				ModelFilm daoFilm = new ModelFilm();
+				daoFilm.updateFilm(new Film(id, titre, description, duration, genre, directeur));
+				response.sendRedirect(request.getContextPath()+"/admin/film");
+			}
 			else
-				request.getRequestDispatcher("/Film/editFilm.jsp").forward(request, response);
-			request.getRequestDispatcher("/Film/editFilm.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/admin/film");
+			// request.getRequestDispatcher("/Film/editFilm.jsp").forward(request, response);
 		}
 		
 		else if( pathInfo.equals("/del") ) {
+			if(request.getParameter("id") != null){
+				int id = Integer.parseInt(request.getParameter("id"));
+				ModelFilm daoFilm = new ModelFilm();
+				Film film = daoFilm.getFilm(id);
+				request.setAttribute("film", film);
+				request.getRequestDispatcher("/Film/deleteFilm.jsp").forward(request, response);
+
+			}
+			else if( request.getParameter("idfilm") != null ) {
+				int id = Integer.parseInt(request.getParameter("idfilm"));
+				ModelFilm daoFilm = new ModelFilm();
+				daoFilm.deleteFilm(id);
+				response.sendRedirect(request.getContextPath()+"/admin/film");
+			}
+			else
 			request.getRequestDispatcher("/Film/deleteFilm.jsp").forward(request, response);
 		}
 		
 		else {
+
 			request.getRequestDispatcher("/Film/afficherFilm.jsp").forward(request, response);
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());

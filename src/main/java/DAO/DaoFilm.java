@@ -14,8 +14,8 @@ public class DaoFilm {
     // sql statements
     private static final String Select_Films = "SELECT * FROM film";
     private static final String Select_Film = "SELECT * FROM film WHERE id_film = ?";
-    private static final String Insert_Film = "INSERT INTO film (titre, description, duration, genre, directeur) VALUES (?, ?, ?, ?, ?)";
-    private static final String Update_Film = "UPDATE film SET titre = ?, description = ?, duration = ?, genre = ?, directeur = ? WHERE id_film = ?";
+    private static final String Insert_Film = "INSERT INTO film (title, description, duration, genre, directeur) VALUES (?, ?, ?, ?, ?)";
+    private static final String Update_Film = "UPDATE film SET title = ?, description = ?, duration = ?, genre = ?, directeur = ? WHERE id_film = ?";
     private static final String Delete_Film = "DELETE FROM film WHERE id_film = ?";
 
     private Connection con = SinglethonConnection.getCon();
@@ -86,6 +86,7 @@ public class DaoFilm {
             ps.setString(5, f.getDirecteur());
 
             inserted = ps.executeUpdate() > 0;
+            System.out.println("Inserted "+inserted);
 
             ps.close();
         } catch (SQLException e) {

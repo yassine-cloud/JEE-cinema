@@ -29,7 +29,7 @@
                     <textarea id="description" name="description" placeholder="Description" class="form-control m-2" required></textarea>
                 </div>
                 <div>Duree
-                    <input type="number" name="duree" id="duree"
+                    <input type="number" name="duration" id="duree"
                         placeholder="Duree" class="form-control m-2" required>
                 </div>
                 <div>Genre
