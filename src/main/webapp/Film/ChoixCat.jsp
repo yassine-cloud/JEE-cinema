@@ -47,14 +47,15 @@
         <%-- Boucle pour afficher les cartes pour chaque film --%>
         <% for(Film film : l) { %>
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= film.getTitle() %></h5>
-                        <p class="card-text"><%= film.getDescription() %></p>
-                        <button type="button" class="btn btn-primary" >Choisir</button>
-                    </div>
-                </div>
-            </div>
+			    <div class="card h-100">
+			        <div class="card-body d-flex flex-column">
+			            <h5 class="card-title"><%= film.getTitle() %></h5>
+			            <p class="card-text flex-grow-1"><%= film.getDescription() %></p>
+			            <button type="button" class="btn btn-primary mt-auto">Choisir</button>
+			        </div>
+			    </div>
+			</div>
+
         <% } %>
     </div>
 </div>
