@@ -49,4 +49,14 @@
     <servlet-name>ServletClient</servlet-name>
     <url-pattern>/ServletClient</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletProjection</display-name>
+    <servlet-name>ServletProjection</servlet-name>
+    <servlet-class>Controller.ServletProjection</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletProjection</servlet-name>
+    <url-pattern>/ServletProjection</url-pattern>
+  </servlet-mapping>
 </web-app>

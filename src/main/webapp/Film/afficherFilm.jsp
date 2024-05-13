@@ -28,6 +28,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<%= request.getContextPath() %>/admin/film">Film</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.getContextPath() %>/admin/projection">projection</a>
+                    </li>
                     
                 </ul>
 
