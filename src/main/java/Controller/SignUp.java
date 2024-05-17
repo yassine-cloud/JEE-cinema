@@ -8,23 +8,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import Model.entities.Film;
 import Model.entities.User;
-import Model.metiers.ModelFilm;
+import Model.metiers.ModalUser;
 
 /**
- * Servlet implementation class ServletClient
+ * Servlet implementation class SignUp
  */
-@WebServlet("/client/film/*")
-public class ServletClient extends HttpServlet {
+@WebServlet("/signup")
+public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletClient() {
+	public SignUp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,27 +33,25 @@ public class ServletClient extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				HttpSession session = request.getSession();
-        if (session.getAttribute("user") == null || !((User) session.getAttribute("user")).getRole().equals("client") ) {
-            response.sendRedirect(request.getContextPath() + "/login");
-            return;
-        }
-		
 		// TODO Auto-generated method stub
-		String pathInfo = request.getPathInfo();
-		// System.out.println(pathInfo);
+		if (request.getParameter("email") != null && request.getParameter("password") != null
+				&& request.getParameter("nom") != null && request.getParameter("prenom") != null) {
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
+			String role = "client";
+			// User u = new User(email, password, nom, prenom, role);
+			ModalUser utilDao = new ModalUser();
+			if (utilDao.insertUser(nom, prenom, email, password, role)) {
+				response.sendRedirect(request.getContextPath() + "/login");
+			} else {
+				response.getWriter().println("Erreur d'inscription");
+			}
 
-		if (pathInfo == null) {
-			ArrayList<Film> films;
-
-			ModelFilm daoFilm = new ModelFilm();
-			films = daoFilm.getFilms();
-
-			System.out.println(films);
-
-			request.setAttribute("films", films);
-
-			request.getRequestDispatcher("/Film/ChoixCat.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/signup.jsp").forward(request, response);
+			;
 		}
 	}
 

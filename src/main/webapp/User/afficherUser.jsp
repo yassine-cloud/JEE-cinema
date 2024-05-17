@@ -1,4 +1,4 @@
-<%@page import="Model.entities.Film"%>
+<%@page import="Model.entities.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,13 +11,13 @@
 <script
     src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8">
-<title> afficher Film</title>
+<title>Afficher Utilisateurs</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Gestion Cinema</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Gestion Utilisateurs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,71 +29,64 @@
                         <a class="nav-link" href="<%= request.getContextPath() %>/admin/film">Film</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<%= request.getContextPath() %>/admin/projection">projection</a>
+                        <a class="nav-link" href="<%= request.getContextPath() %>/admin/projection">Projection</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<%= request.getContextPath() %>/admin/user">User</a>
                     </li>
-                    
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="<%= request.getContextPath() %>/logout">Logout</a>
                     </li>
-                    
                 </ul>
-                
             </div>
         </div>
     </nav>
 
     <div class="container m-5">
 
-        <h1>Les Films Disponibles</h1>
+        <h1>Les Utilisateurs Disponibles</h1>
         
-        <a class="btn btn-success m-auto my-2" href="<%= request.getContextPath() %>/admin/film/add" >Ajouter Film</a>
+        <a class="btn btn-success m-auto my-2" href="<%= request.getContextPath() %>/admin/user/add">Ajouter Utilisateur</a>
         
-        <% Object o = request.getAttribute("films");
-        	ArrayList<Film> l = new ArrayList<>(); 
+        <% Object o = request.getAttribute("users");
+        	ArrayList<User> l = new ArrayList<>(); 
         	if(o instanceof ArrayList){
-        		l= (ArrayList) o ; 
+        		l = (ArrayList) o; 
         	}
         %>
-        <table class="table table-bordered table-hover ">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr class="table-secondary">
                     <th>ID</th>
-                    <th>Image</th>
-                    <th>Titre</th>
-                    <th>Duree</th>
-                    <th>Genre</th>
-                    <th>Directeur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
                     <th colspan=2 class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
-               <%  for (Film f : l) { %>
+               <% for (User user : l) { %>
                     <tr>
-                    
-                        <td><%= f.getId_film() %></td>
-                        <th><img alt="image film" src="<%= f.getImg() %>" style="width:150px;height:100px;"> </th>
-                        <td><%= f.getTitle() %></td>
-                        <td><%= f.getDuration() %></td>
-                        <td><%= f.getGenre() %></td>
-                        <td><%= f.getDirecteur() %></td>
-                        <td class="text-center" > <a class="btn btn-primary" href="<%= request.getContextPath() %>/admin/film/edit?id=<%= f.getId_film() %>" >Editer</a> </td>
-                        <td class="text-center" > <a class="btn btn-danger" href="<%= request.getContextPath() %>/admin/film/del?id=<%= f.getId_film() %>">Supprimer</a> </td>
-                        
+                        <td><%= user.getId_user() %></td>
+                        <td><%= user.getNom() %></td>
+                        <td><%= user.getPrenom() %></td>
+                        <td><%= user.getEmail() %></td>
+                        <td><%= user.getRole() %></td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" href="<%= request.getContextPath() %>/admin/user/edit?id=<%= user.getId_user() %>">Editer</a>
+                        </td>
+                        <td class="text-center">
+                            <a class="btn btn-danger" href="<%= request.getContextPath() %>/admin/user/del?id=<%= user.getId_user() %>">Supprimer</a>
+                        </td>
                     </tr>
                 <% } %>
             </tbody>
         </table>
         
-        </div>
     </div>
-
-
 </body>
 </html>

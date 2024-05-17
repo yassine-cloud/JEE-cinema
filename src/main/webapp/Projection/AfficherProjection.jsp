@@ -40,6 +40,9 @@ DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
                 <li class="nav-item">
                     <a class="nav-link" href="<%= request.getContextPath() %>/admin/projection">projection</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= request.getContextPath() %>/admin/user">User</a>
+                </li>
                 
             </ul>
 

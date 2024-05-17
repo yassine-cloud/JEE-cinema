@@ -18,7 +18,8 @@
             <p class="lead">Merci de visiter notre site.</p>
             <hr class="my-4">
             <p>Connectez-vous pour accéder à plus de fonctionnalités.</p>
-            <a class="btn btn-primary btn-lg" href="<%= request.getContextPath() %>/login" role="button">Se connecter</a>
+            <a class="btn btn-primary btn-lg m-1" href="<%= request.getContextPath() %>/login" role="button">Se connecter</a>
+            <a class="btn btn-secondary btn-lg m-1" href="<%= request.getContextPath() %>/signup" role="button">S'inscrire</a>
         </div>
     </div>
 </body>

@@ -72,4 +72,34 @@
     <servlet-name>logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignUp</display-name>
+    <servlet-name>SignUp</servlet-name>
+    <servlet-class>Controller.SignUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/SignUp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletUser</display-name>
+    <servlet-name>ServletUser</servlet-name>
+    <servlet-class>Controller.ServletUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletUser</servlet-name>
+    <url-pattern>/ServletUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FilmDetailServlet</display-name>
+    <servlet-name>FilmDetailServlet</servlet-name>
+    <servlet-class>Controller.FilmDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilmDetailServlet</servlet-name>
+    <url-pattern>/FilmDetailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

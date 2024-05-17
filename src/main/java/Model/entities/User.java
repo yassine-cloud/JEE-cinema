@@ -1,12 +1,12 @@
 package Model.entities;
 
 public class User {
-	
-	private int id_user;
-	
-	private String nom, prenom , email , password , role;
 
-	public User(int id ,String nom, String prenom, String email, String password, String role) {
+	private int id_user;
+
+	private String nom, prenom, email, password, role;
+
+	public User(int id, String nom, String prenom, String email, String password, String role) {
 		super();
 		this.id_user = id;
 		this.nom = nom;
@@ -16,16 +16,22 @@ public class User {
 		this.role = role;
 	}
 
-	
+	public User(String nom, String prenom, String email, String password, String role) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+
 	public int getId_user() {
 		return id_user;
 	}
 
-
 	public void setId_user(int id_user) {
 		this.id_user = id_user;
 	}
-
 
 	public String getNom() {
 		return nom;
@@ -76,7 +82,6 @@ public class User {
 		return "User [nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", role=" + role + "]";
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,8 +93,5 @@ public class User {
 		User other = (User) obj;
 		return id_user == other.id_user;
 	}
-	
-	
-	
 
 }
