@@ -49,17 +49,18 @@ public class ServletFilm extends HttpServlet {
 		
 		else if( pathInfo.equals("/add") ) {
 
-			if( request.getParameter("titre") != null && request.getParameter("description") != null && request.getParameter("duration") != null && request.getParameter("genre") != null && request.getParameter("directeur") != null ) {
+			if( request.getParameter("titre") != null && request.getParameter("description") != null && request.getParameter("duration") != null && request.getParameter("genre") != null && request.getParameter("directeur") != null && request.getParameter("img") != null  ) {
 
 				String titre = request.getParameter("titre");
 				String description = request.getParameter("description");
 				int duration = Integer.parseInt(request.getParameter("duration"));
 				String genre = request.getParameter("genre");
 				String directeur = request.getParameter("directeur");
+				String img = request.getParameter("img");
 				ModelFilm daoFilm = new ModelFilm();
 				
-				daoFilm.insertFilm(new Film(titre, description, duration, genre, directeur));
-				System.out.println(new Film(titre, description, duration, genre, directeur));
+				daoFilm.insertFilm(new Film(titre, description, duration, genre, directeur , img));
+				System.out.println(new Film(titre, description, duration, genre, directeur , img));
 
 				response.sendRedirect(request.getContextPath()+"/admin/film");			
 
@@ -77,15 +78,16 @@ public class ServletFilm extends HttpServlet {
 				request.setAttribute("film", film);
 				request.getRequestDispatcher("/Film/editFilm.jsp").forward(request, response);
 			}
-			else if(request.getParameter("idfilm") != null  && request.getParameter("titre") != null && request.getParameter("description") != null && request.getParameter("duration") != null && request.getParameter("genre") != null && request.getParameter("directeur") != null ){
+			else if(request.getParameter("idfilm") != null  && request.getParameter("titre") != null && request.getParameter("description") != null && request.getParameter("duration") != null && request.getParameter("genre") != null && request.getParameter("directeur") != null && request.getParameter("img") != null ){
 				int id = Integer.parseInt(request.getParameter("idfilm"));
 				String titre = request.getParameter("titre");
 				String description = request.getParameter("description");
 				int duration = Integer.parseInt(request.getParameter("duration"));
 				String genre = request.getParameter("genre");
 				String directeur = request.getParameter("directeur");
+				String img = request.getParameter("img");
 				ModelFilm daoFilm = new ModelFilm();
-				daoFilm.updateFilm(new Film(id, titre, description, duration, genre, directeur));
+				daoFilm.updateFilm(new Film(id, titre, description, duration, genre, directeur, img));
 				response.sendRedirect(request.getContextPath()+"/admin/film");
 			}
 			else

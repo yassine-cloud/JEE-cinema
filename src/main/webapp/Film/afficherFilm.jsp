@@ -37,7 +37,7 @@
                 <ul class="navbar-nav ml-auto">
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="<%= request.getContextPath() %>">Logout</a>
+                        <a class="nav-link" href="<%= request.getContextPath() %>/logout">Logout</a>
                     </li>
                     
                 </ul>
@@ -62,6 +62,7 @@
             <thead>
                 <tr class="table-secondary">
                     <th>ID</th>
+                    <th>Image</th>
                     <th>Titre</th>
                     <th>Duree</th>
                     <th>Genre</th>
@@ -74,6 +75,7 @@
                     <tr>
                     
                         <td><%= f.getId_film() %></td>
+                        <th><img alt="image film" src="<%= f.getImg() %>" style="width:150px;height:100px;"> </th>
                         <td><%= f.getTitle() %></td>
                         <td><%= f.getDuration() %></td>
                         <td><%= f.getGenre() %></td>

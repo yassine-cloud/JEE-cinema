@@ -45,6 +45,10 @@
                     <input type="text" name="directeur" id="directeur"
                         placeholder="Directeur" class="form-control m-2" value="<%= f.getDirecteur() %>" readonly required>
                 </div>
+                <div>Image
+                    <input type="text" name="img" id="img"
+                        placeholder="Directeur" class="form-control m-2" value="<%= f.getImg() %>" readonly required>
+                </div>
 
                 <div>
                     <input type="submit" class="btn btn-danger m-2" value="supprimer">

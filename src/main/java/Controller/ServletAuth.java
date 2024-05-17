@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -32,15 +33,29 @@ public class ServletAuth extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") != null) {
+			User user = (User) session.getAttribute("user");
+			if(user.getRole().equals("admin")) {
+				response.sendRedirect(request.getContextPath()+"/admin/hall");
+				return ;
+			}
+			else {
+				response.sendRedirect(request.getContextPath()+"/client/film");
+				return ;
+			}
+		}
+				
 		
 		String email = request.getParameter("email");
         String password = request.getParameter("password");
         if(email != null && password != null) {
         	ModalUser utilDao = new ModalUser();
         	User u = utilDao.authentifier(email, password);
+			
             if( u !=null )
             {
+				session.setAttribute("user", u);
             	if(u.getRole().equals("admin") ) {
         			response.sendRedirect(request.getContextPath()+"/admin/hall");			
             	}

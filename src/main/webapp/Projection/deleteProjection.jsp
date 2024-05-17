@@ -41,7 +41,7 @@
                         placeholder="Heure" class="form-control m-2" value="<%=p.getdate().format(timeFormatter)%>" readonly required>
                 </div>
                 <div>Prix
-                    <input type="number" name="prix" id="prix"
+                    <input type="text" name="prix" id="prix"
                         placeholder="Prix" class="form-control m-2" value="<%= p.getPrix() %>" readonly required>
                 </div>
                 <div>Hall

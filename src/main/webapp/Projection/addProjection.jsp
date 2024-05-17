@@ -30,7 +30,7 @@
                         placeholder="Heure" class="form-control m-2" required>
                 </div>
                 <div>Prix
-                    <input type="number" name="prix" id="prix"
+                    <input type="text" name="prix" id="prix"
                         placeholder="Prix" class="form-control m-2" required>
                 </div>
                 

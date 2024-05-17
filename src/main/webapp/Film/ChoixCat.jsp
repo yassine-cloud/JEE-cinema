@@ -43,21 +43,22 @@
         	}
         %>
 
-    <div class="row">
-        <%-- Boucle pour afficher les cartes pour chaque film --%>
-        <% for(Film film : l) { %>
-            <div class="col-md-4 mb-4">
-			    <div class="card h-100">
-			        <div class="card-body d-flex flex-column">
-			            <h5 class="card-title"><%= film.getTitle() %></h5>
-			            <p class="card-text flex-grow-1"><%= film.getDescription() %></p>
-			            <button type="button" class="btn btn-primary mt-auto">Choisir</button>
-			        </div>
-			    </div>
-			</div>
-
-        <% } %>
-    </div>
+        <div class="row">
+            <%-- Boucle pour afficher les cartes pour chaque film --%>
+            <% for(Film film : l) { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" alt="<%= film.getTitle() %>" src="<%= film.getImg() %>" style="height: 150px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><%= film.getTitle() %></h5>
+                            <p class="card-text flex-grow-1"><%= film.getDescription() %></p>
+                            <button type="button" class="btn btn-primary mt-auto">Choisir</button>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        
 </div>
 
 

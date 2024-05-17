@@ -14,8 +14,8 @@ public class DaoFilm {
     // sql statements
     private static final String Select_Films = "SELECT * FROM film";
     private static final String Select_Film = "SELECT * FROM film WHERE id_film = ?";
-    private static final String Insert_Film = "INSERT INTO film (title, description, duration, genre, directeur) VALUES (?, ?, ?, ?, ?)";
-    private static final String Update_Film = "UPDATE film SET title = ?, description = ?, duration = ?, genre = ?, directeur = ? WHERE id_film = ?";
+    private static final String Insert_Film = "INSERT INTO film (title, description, duration, genre, directeur, img) VALUES (?, ?, ?, ?, ? , ?)";
+    private static final String Update_Film = "UPDATE film SET title = ?, description = ?, duration = ?, genre = ?, directeur = ? , img = ? WHERE id_film = ?";
     private static final String Delete_Film = "DELETE FROM film WHERE id_film = ?";
 
     private Connection con = SinglethonConnection.getCon();
@@ -33,7 +33,7 @@ public class DaoFilm {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                l.add(new Film(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6)));
+                l.add(new Film(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6) , rs.getString(7)) );
             }
             rs.close();
             ps.close();
@@ -58,7 +58,7 @@ public class DaoFilm {
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                f = new Film(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+                f = new Film(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6) , rs.getString(7) );
             }
             rs.close();
             ps.close();
@@ -84,6 +84,7 @@ public class DaoFilm {
             ps.setInt(3, f.getDuration());
             ps.setString(4, f.getGenre());
             ps.setString(5, f.getDirecteur());
+            ps.setString(6, f.getImg());
 
             inserted = ps.executeUpdate() > 0;
             System.out.println("Inserted "+inserted);
@@ -111,7 +112,8 @@ public class DaoFilm {
             ps.setInt(3, f.getDuration());
             ps.setString(4, f.getGenre());
             ps.setString(5, f.getDirecteur());
-            ps.setInt(6, f.getId_film());
+            ps.setString(6, f.getImg());
+            ps.setInt(7, f.getId_film());
 
             updated = ps.executeUpdate() > 0;
 

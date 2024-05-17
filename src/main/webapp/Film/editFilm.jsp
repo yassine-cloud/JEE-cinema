@@ -41,6 +41,10 @@
                     <input type="text" name="directeur" id="directeur"
                         placeholder="Directeur" class="form-control m-2" value="<%= f.getDirecteur() %>" required>
                 </div>
+                <div>Image
+                    <input type="text" name="img" id="img"
+                        placeholder="Directeur" class="form-control m-2" value="<%= f.getImg() %>" required>
+                </div>
                 
                 <div>
                     <input type="submit" class="btn btn-success m-2" value="Editer">

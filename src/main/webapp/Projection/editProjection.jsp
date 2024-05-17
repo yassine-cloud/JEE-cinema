@@ -41,7 +41,7 @@ DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
                         placeholder="Heure" class="form-control m-2" value="<%=projection.getdate().format(timeFormatter)%>" required>
                 </div>
                 <div>Prix
-                    <input type="number" name="prix" id="prix"
+                    <input type="text" name="prix" id="prix"
                         placeholder="Prix" class="form-control m-2" value="<%=projection.getPrix()%>" required>
                 </div>
                 
